@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dev-user-access
+  namespace: dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: dev-user-full-access
+subjects:
+- kind: Group
+  namespace: dev
+  name: c2a12a12-7159-48f9-9621-0d5bf6118a22

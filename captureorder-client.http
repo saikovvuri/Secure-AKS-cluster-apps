@@ -1,0 +1,23 @@
+@host = 52.147.217.189
+
+# -----------------------
+# API: order-api
+###
+# @name createOrder
+POST http://{{host}}/v1/order
+Content-Type: application/json
+
+{
+    "EmailAddress": "email@domain.com", 
+    "Product": "prod-2", 
+    "Total": 200
+}
+
+@orderId = {{createOrder.response.body.orderId}}
+
+# -----------------------
+# API: order-api
+###
+# @name getOrder
+GET http://{{host}}/v1/orders/{{orderId}}
+Content-Type: application/json
